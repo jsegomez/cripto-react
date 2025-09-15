@@ -1,10 +1,10 @@
 import type { FormEvent } from "react"
+import { currencies } from "../data";
 
 export default function CriptoSearch() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   }
-
 
   return (
     <form className="form" onSubmit={ handleSubmit }>
@@ -14,7 +14,13 @@ export default function CriptoSearch() {
           name="currency"
           id="currency"
         >
-          <option value="">Seleccionar</option>
+          <option value="">Seleccionar...</option>
+          {currencies.map((currency) => (
+            <option
+              key={currency.code}
+              value={currency.code}
+            >{currency.name}</option>
+          ))}
         </select>
       </div>
 
@@ -24,7 +30,7 @@ export default function CriptoSearch() {
           name="cripto-currency"
           id="cripto-currency"
         >
-          <option value="">Seleccionar</option>
+          <option value="">Seleccionar...</option>
         </select>
       </div>
 
