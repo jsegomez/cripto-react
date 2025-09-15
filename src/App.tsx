@@ -8,7 +8,7 @@ function App() {
   const { fetchCrypto } = useCryptoStore();
 
   useEffect(() => {
-    fetchCrypto()
+    fetchCrypto(10, 'USD')
   },[ fetchCrypto])
 
   return (
