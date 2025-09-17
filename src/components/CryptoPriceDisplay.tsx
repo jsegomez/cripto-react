@@ -1,8 +1,16 @@
 import { useCryptoStore } from "../store/store"
+import Loding from "./Loding";
 
 export default function CryptoPriceDisplay() {
-    const { cryptoPrice } = useCryptoStore();
+    const { cryptoPrice, isPending } = useCryptoStore();
+
+
     
+    if(isPending) return (
+        <div className="loading-component">
+            <Loding />
+        </div>
+    )
     return (
         <>
             {
