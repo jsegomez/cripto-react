@@ -3,12 +3,13 @@ import './index.css'
 import CriptoSearch from './components/CriptoSearch'
 import { useCryptoStore } from './store/store'
 import { useEffect } from 'react';
+import CryptoPriceDisplay from './components/CryptoPriceDisplay';
 
 function App() {  
   const { fetchCrypto } = useCryptoStore();
 
   useEffect(() => {
-    fetchCrypto(10, 'USD')
+    fetchCrypto(20, 'USD')
   },[ fetchCrypto])
 
   return (
@@ -18,6 +19,7 @@ function App() {
 
       <div className="content">
         <CriptoSearch />
+        <CryptoPriceDisplay />
       </div>
     </div>
   )
